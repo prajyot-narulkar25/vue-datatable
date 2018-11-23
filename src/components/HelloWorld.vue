@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+  <chartjs-doughnut v-bind:labels="labels" v-vind:datasets="datasets" v-bind:option="option"></chartjs-doughnut>
     <b-container fluid>
     <!-- User Interface controls -->
     <b-row>
@@ -111,6 +112,24 @@ const items = [
 export default {
   data () {
     return {
+      labels:["apples","oranges","Banana"],
+      datasets:[{
+            data: [30, 50, 20],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ],
+        }],
+        option:{
+            responsive:true,
+            maintainAspectRatio:true,
+            title: {
+                display: true,
+                position: 'bottom',
+                text: 'Fruits'
+            }
+        },
       items: items,
       fields: [
         { key: 'userId', label: 'user Id', sortable: true, sortDirection: 'desc' },
